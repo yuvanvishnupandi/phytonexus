@@ -180,10 +180,8 @@ export default function EncyclopediaPage() {
         <div className="mx-auto w-full animate-fade-in pb-12">
           <div className="rounded-[2rem] border border-line bg-surface shadow-xl p-6 md:p-10 lg:p-12">
             
-            {/* Header Area: Image Gallery & Info */}
             <div className="flex flex-col lg:flex-row gap-10 mb-12">
                
-               {/* Image Gallery */}
                <div className="shrink-0 w-full lg:w-[500px]">
                  {images.length > 0 ? (
                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 h-full">
@@ -206,14 +204,12 @@ export default function EncyclopediaPage() {
                  )}
                </div>
 
-               {/* Plant Info */}
                <div className="flex-1 flex flex-col justify-center">
                  <h2 className="text-5xl lg:text-7xl font-serif font-bold text-ink mb-2 tracking-tight capitalize" dangerouslySetInnerHTML={{__html: result.title}}></h2>
                  {result.description && (
                    <p className="text-xl text-sage font-medium capitalize mb-8 tracking-wide">{result.description}</p>
                  )}
                  
-                 {/* Taxonomy Facts */}
                  <div className="bg-[#f8f7f5] rounded-[1.5rem] p-6 lg:p-8 border border-line mb-6 shadow-sm">
                    <h3 className="text-sm font-bold uppercase tracking-widest text-ink/40 mb-4">Scientific Classification (GBIF)</h3>
                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-6 gap-x-4 text-ink/80 font-medium">
@@ -232,7 +228,6 @@ export default function EncyclopediaPage() {
                </div>
             </div>
 
-            {/* Accordions for Details */}
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
               <details className="group border border-line rounded-[1.5rem] bg-surface overflow-hidden shadow-sm" open>
                 <summary className="cursor-pointer px-8 py-6 font-bold text-xl text-ink list-none flex justify-between items-center bg-[#f8f7f5] group-open:border-b group-open:border-line transition-colors hover:bg-line/30">
@@ -269,7 +264,6 @@ export default function EncyclopediaPage() {
               )}
             </div>
 
-            {/* External Link */}
             {result.content_urls?.desktop?.page && (
                <div className="mt-12 flex justify-end">
                   <a 

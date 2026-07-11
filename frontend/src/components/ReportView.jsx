@@ -16,7 +16,6 @@ export default function ReportView({ result }) {
   return (
     <section className="space-y-6 animate-fade-in pb-8">
       
-      {/* Navigation Tabs */}
       {hasAdvancedFeatures && (
         <div className="flex bg-surface p-1 rounded-2xl md:rounded-full border border-line shadow-sm w-full max-w-2xl mx-auto mb-8">
           <button onClick={() => setActiveTab("overview")} className={`flex-1 py-2 rounded-xl md:rounded-full font-bold text-xs sm:text-[0.95rem] transition-all ${activeTab === 'overview' ? 'bg-ink text-paper shadow-md' : 'text-ink/60 hover:text-ink'}`}>Diagnosis Overview</button>

@@ -45,9 +45,7 @@ export default function AgentTimeline({ activeStep, done }) {
 
   return (
     <div className="flex flex-col gap-6 h-full min-h-0">
-      {/* Dynamic Terminal Section */}
       <div className="w-full flex-1 min-h-0 rounded-[1.5rem] bg-[#1a1a1a] shadow-2xl overflow-hidden border border-line text-left font-mono text-[0.85rem] flex flex-col transition-all duration-300">
-        {/* Header */}
         <div className="bg-[#2d2d2d] px-4 py-3 flex items-center gap-2 border-b border-[#404040]">
           <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
           <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
@@ -57,7 +55,6 @@ export default function AgentTimeline({ activeStep, done }) {
           </div>
         </div>
         
-        {/* Terminal Body - Flexes to fill available space, no scrollbars */}
         <div className="px-5 py-4 flex-1 flex flex-col gap-2 bg-black/50 leading-snug overflow-hidden">
           <div className="text-white font-medium">
             <span className="text-[#00c3ff] font-bold">system</span><span className="text-white/40">@</span><span className="text-white">phytonexus</span> <span className="text-white/40">~ %</span> ./run_diagnostics.sh
@@ -79,13 +76,10 @@ export default function AgentTimeline({ activeStep, done }) {
         </div>
       </div>
 
-      {/* Amazon-style Stepper */}
       <div className="rounded-[1.5rem] border border-line bg-surface p-4 sm:px-8 shadow-sm overflow-hidden">
         <div className="relative flex items-center justify-between min-w-[320px] w-full px-2">
-          {/* Background Track Line */}
           <div className="absolute top-1/2 left-4 right-4 h-1 bg-line -translate-y-1/2 z-0 rounded-full"></div>
           
-          {/* Active Fill Line */}
           <div 
             className="absolute top-1/2 left-4 h-1 bg-clay -translate-y-1/2 z-0 transition-all duration-500 ease-in-out rounded-full"
             style={{ width: done ? 'calc(100% - 2rem)' : `calc(${(activeStep / (steps.length - 1)) * 100}% - 2rem)` }}

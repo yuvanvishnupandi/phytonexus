@@ -62,7 +62,6 @@ function SystemArchitectureSection() {
   return (
     <section className="py-12 px-6 md:px-16 lg:px-24 w-full mx-auto mb-8">
        <div className="w-full bg-[#efeee8] rounded-[2rem] p-8 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-16 shadow-sm">
-           {/* Left Text */}
            <div className="w-full lg:w-1/2 flex flex-col items-start text-left">
               <h2 className="font-sans text-3xl md:text-4xl text-ink font-bold mb-4 tracking-tight">AI Diagnostic Engine</h2>
               <p className="text-ink/80 text-lg mb-8 leading-relaxed font-medium">
@@ -73,7 +72,6 @@ function SystemArchitectureSection() {
               </Link>
            </div>
           
-          {/* Right Interface Mock */}
          <div className="w-full lg:w-[50%] flex flex-col gap-4 relative">
             <div className="bg-white rounded-[1rem] p-3 self-end shadow-sm flex items-center gap-4 border border-line/50 hover:shadow-md transition-shadow">
                <div className="bg-[#5c7a52] text-white p-3 rounded-lg"><Camera size={18} strokeWidth={2}/></div>
@@ -122,7 +120,6 @@ function WhyPhytoNexusSection() {
       </div>
       
       <div className="flex flex-col lg:flex-row gap-12 flex-1 min-h-0">
-         {/* Left text column */}
          <div className="w-full lg:w-[30%] flex flex-col justify-between h-full py-4 pr-4">
             <div>
               <h3 className="font-bold text-ink mb-1.5 text-xl">Secure</h3>
@@ -138,7 +135,6 @@ function WhyPhytoNexusSection() {
             </div>
          </div>
          
-         {/* Right Image */}
          <div className="w-full lg:w-[70%] flex items-center justify-center h-full mix-blend-multiply">
             <img src="/dashboard.png" alt="PhytoNexus Features" className="w-full h-auto max-h-[85vh] object-contain scale-[1.05] hover:scale-[1.08] transition-transform duration-500 origin-center" />
          </div>
@@ -151,7 +147,6 @@ function WhyPhytoNexusSection() {
 function FooterSection() {
   return (
     <footer className="bg-paper text-ink pt-16 pb-8 px-6 md:px-16 lg:px-24 w-full min-h-[calc(100vh-3.5rem)] flex flex-col justify-between">
-      {/* Top Row */}
       <div className="w-full mx-auto flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-0">
         <div className="mb-8 lg:mb-0">
           <h2 className="text-[2rem] md:text-5xl font-medium tracking-tight">Experience liftoff</h2>
@@ -170,24 +165,19 @@ function FooterSection() {
         </div>
       </div>
       
-      {/* Massive Text Row */}
       <div className="w-full flex justify-center items-center flex-1 overflow-visible">
         <h1 className="text-[17vw] leading-none font-bold tracking-tighter text-ink pointer-events-none select-none">
           PhytoNexus
         </h1>
       </div>
       
-      {/* Bottom Row */}
       <div className="w-full mx-auto flex flex-col md:flex-row justify-between items-center gap-6 pt-12 text-[0.9rem] font-bold">
         <div className="flex items-center gap-2 font-serif text-xl">
           <img src="/favicon.png" alt="Logo" className="w-6 h-6 grayscale" style={{ imageRendering: 'pixelated' }} />
           PhytoNexus
         </div>
         <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-ink/70">
-          {/* <Link to="/" className="hover:text-ink transition-colors">Documentation</Link> */}
          
-          {/* <Link to="/" className="hover:text-ink transition-colors">System Architecture</Link> */}
-          {/* <Link to="/" className="hover:text-ink transition-colors">Model Guidelines</Link> */}
         </div>
       </div>
     </footer>
@@ -200,7 +190,6 @@ function HeroSection() {
   return (
     <section className="flex flex-col-reverse lg:flex-row items-center justify-between pt-8 pb-16 lg:pb-20 px-6 md:px-16 lg:px-24 w-full mx-auto gap-12 lg:gap-16 min-h-[calc(100vh-3.5rem)]">
       
-      {/* Left Side: Text & Actions */}
       <div className="w-full lg:w-[45%] flex flex-col items-center lg:items-start text-center lg:text-left mt-8 lg:mt-0">
         
         <h1 className="mb-6 font-serif text-[2.7rem] sm:text-[4.5rem] leading-[1.05] tracking-tight text-ink">
@@ -223,7 +212,6 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* Right Side: Hero Image Mockup */}
       <div className="w-full lg:w-[50%] flex justify-center lg:justify-end items-center relative">
         <img src="/brain-plant.png" alt="AI Botanical Brain" className="w-full max-w-[320px] lg:max-w-none lg:w-[85%] max-h-[50vh] lg:max-h-[80vh] object-contain hover:-translate-y-2 transition-transform duration-500" />
       </div>
@@ -236,10 +224,8 @@ export default function HomePage() {
   return (
     <div className="w-full bg-paper font-sans text-ink selection:bg-clay/20">
       
-      {/* 1. Unified Top Navigation */}
       <TopNavbar />
 
-      {/* 2. Hero Section */}
       <HeroSection />      {/* Content Sections */}
       <CapabilitiesSection />
       <SystemArchitectureSection />

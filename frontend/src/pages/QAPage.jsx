@@ -278,7 +278,6 @@ export default function QAPage() {
 
       <div className={`flex h-[100dvh] w-full transition-all duration-500 ${!user ? 'blur-md pointer-events-none select-none scale-[0.99] opacity-60' : ''}`}>
       
-      {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && (
          <div 
            className="md:hidden fixed inset-0 z-[60] bg-ink/20 backdrop-blur-sm"
@@ -286,16 +285,13 @@ export default function QAPage() {
          />
       )}
 
-      {/* Sidebar */}
       <div className={`absolute md:relative z-[70] h-full bg-[#f8f7f5] border-r border-line flex flex-col justify-between py-4 shrink-0 transition-all duration-300 ${isSidebarOpen ? 'w-[280px] md:w-[260px] px-3 translate-x-0' : 'w-[280px] md:w-0 px-3 md:px-0 -translate-x-full md:translate-x-0 opacity-0 md:border-none'}`}>
         <div className="w-full overflow-hidden whitespace-nowrap">
-          {/* Top Header / Logo */}
           <div className="flex items-center gap-2 mb-8 px-2 mt-2">
             <img src="/favicon.png" className="w-6 h-6 object-contain drop-shadow-sm" style={{imageRendering: 'pixelated'}} />
             <span className="font-serif font-bold text-xl text-ink tracking-tight">FloraChat</span>
           </div>
           
-          {/* Primary Actions */}
           <button onClick={handleNewChat} className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-ink hover:bg-black/5 transition-colors mb-2 font-medium">
             <Plus size={16} strokeWidth={2}/>
             New chat
@@ -308,7 +304,6 @@ export default function QAPage() {
             </button>
           </div>
 
-          {/* Recents Section */}
           <div>
              <div className="px-3 text-[0.65rem] font-bold uppercase tracking-widest text-ink/40 mb-2 flex justify-between items-center">
                Recents
@@ -337,10 +332,8 @@ export default function QAPage() {
         </div>
       </div>
 
-      {/* Main Chat Area */}
       <div className="flex-1 flex flex-col h-[100dvh] bg-paper relative selection:bg-clay/20 w-full overflow-hidden">
          
-         {/* Top bar with Toggle & Close */}
          <div className="absolute top-6 left-6 right-8 flex items-center justify-between z-50">
             <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="p-2 rounded-md hover:bg-black/5 text-ink/70 hover:text-ink transition-colors bg-surface/50 backdrop-blur-md shadow-sm border border-line">
                {isSidebarOpen ? <PanelLeftClose size={18}/> : <PanelLeftOpen size={18}/>}
@@ -350,7 +343,6 @@ export default function QAPage() {
             </Link>
          </div>
          
-         {/* Scrollable Container (ChatGPT style) */}
          <div className="flex-1 overflow-y-auto custom-scrollbar flex flex-col w-full relative pt-24 pb-40">
             <div className={`w-full max-w-3xl mx-auto px-4 md:px-8 flex flex-col min-h-full ${!hasMessages ? 'justify-end' : 'justify-start'}`}>
                
@@ -398,7 +390,6 @@ export default function QAPage() {
             </div>
          </div>
 
-         {/* Fixed Input Box at Bottom */}
          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-paper via-paper to-transparent pt-10 pb-4 md:pb-8 px-4 z-40" style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}>
             <div className="w-full max-w-3xl mx-auto">
                <div className="w-full bg-[#f8f7f5] border border-line rounded-[1.5rem] p-4 flex flex-col shadow-lg shadow-black/5 focus-within:shadow-xl focus-within:border-ink/20 transition-all">
@@ -448,7 +439,6 @@ export default function QAPage() {
          </div>
       </div>
       
-      {/* Auth Lock Overlay */}
       {!user && (
          <div className="absolute inset-0 z-50 bg-paper/60 backdrop-blur-[6px] flex flex-col items-center justify-center p-6 text-center animate-fade-in">
             <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-2xl border border-line max-w-lg w-full flex flex-col items-center">

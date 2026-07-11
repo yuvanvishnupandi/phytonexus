@@ -134,12 +134,10 @@ export default function FloraVoicePage() {
 
   return (
     <div className="flex h-[100dvh] w-full bg-paper relative overflow-hidden">
-      {/* Background Orbs */}
       <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply overflow-hidden pointer-events-none">
          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] rounded-full filter blur-[100px] transition-all duration-1000 ${isListening ? 'bg-red-400 scale-110' : isProcessing ? 'bg-blue-400 scale-100 animate-pulse' : 'bg-sage scale-100'}`}></div>
       </div>
 
-      {/* Main Content */}
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-center p-6">
          
          <button 
@@ -178,7 +176,6 @@ export default function FloraVoicePage() {
                )}
             </button>
 
-            {/* Stop Button */}
             {(isListening || isPlaying) && (
                <button 
                  onClick={handleStop}
@@ -191,7 +188,6 @@ export default function FloraVoicePage() {
 
       </div>
 
-      {/* Auth Lock Overlay */}
       {!user && (
          <div className="absolute inset-0 z-50 bg-paper/60 backdrop-blur-[6px] flex flex-col items-center justify-center p-6 text-center animate-fade-in">
             <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-2xl border border-line max-w-lg w-full flex flex-col items-center">

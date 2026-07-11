@@ -68,7 +68,6 @@ export default function TopNavbar() {
         </nav>
 
         <div className="flex items-center gap-4 relative" ref={dropdownRef}>
-          {/* Mobile Menu Toggle */}
           <button 
             className="md:hidden p-2 text-ink/70 hover:text-ink transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -121,7 +120,6 @@ export default function TopNavbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="absolute top-full left-0 w-full bg-paper border-b border-line shadow-2xl md:hidden z-40 flex flex-col px-8 py-6 gap-4 animate-fade-in h-[calc(100vh-4rem)] overflow-y-auto">
           <NavLink to="/" onClick={() => setIsMobileMenuOpen(false)} className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-xl text-lg font-bold transition-all ${isActive ? "bg-sage/10 text-sage" : "text-ink/70 hover:bg-black/5 hover:text-ink"}`}>

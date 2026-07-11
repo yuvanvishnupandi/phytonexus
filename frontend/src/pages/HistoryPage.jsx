@@ -99,7 +99,6 @@ export default function HistoryPage() {
               key={item._id} 
               className="group rounded-[1.5rem] border border-line bg-surface p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6 md:gap-8 animate-fade-in"
             >
-              {/* Image Thumbnail */}
               <div className="shrink-0 w-full md:w-48 h-48 rounded-2xl overflow-hidden bg-[#f8f7f5] border border-line relative">
                 {imageSrc ? (
                   <img src={imageSrc} alt={item.filename} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -110,7 +109,6 @@ export default function HistoryPage() {
                   </div>
                 )}
                 
-                {/* Risk Badge */}
                 <div className="absolute top-3 right-3">
                   <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm border ${
                     riskLevel.toLowerCase().includes('low') ? 'bg-green-100 text-green-800 border-green-200' :
@@ -122,7 +120,6 @@ export default function HistoryPage() {
                 </div>
               </div>
 
-              {/* Info Content */}
               <div className="flex-1 flex flex-col justify-between py-1">
                 <div>
                   <div className="flex items-center gap-2 text-ink/50 text-xs font-bold uppercase tracking-wider mb-2">

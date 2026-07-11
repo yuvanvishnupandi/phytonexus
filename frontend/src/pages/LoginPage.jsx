@@ -34,10 +34,8 @@ export default function LoginPage() {
     <div className="flex flex-col min-h-screen bg-paper font-sans">
       <div className="flex flex-1 w-full">
       
-      {/* Left Column: Login Area */}
       <div className="flex w-full flex-col items-center justify-center px-6 py-12 md:w-[50%] lg:w-[45%]">
         
-        {/* Logo */}
         <div className="absolute top-8 left-8 flex items-center gap-2 text-ink">
           <Link to="/" className="flex items-center gap-2">
             <img src="/favicon.png" alt="PhytoNexus Logo" className="w-8 h-8 object-contain" style={{ imageRendering: 'pixelated' }} />
@@ -45,12 +43,10 @@ export default function LoginPage() {
           </Link>
         </div>
 
-        {/* Hero Text */}
         <h1 className="mb-12 text-center font-serif text-5xl leading-[1.1] text-ink sm:text-[3.5rem]">
           Spark your<br />botanical journey
         </h1>
 
-        {/* Login Box */}
         <div className="w-full max-w-md rounded-[1.5rem] border border-line bg-surface/50 p-8 shadow-sm">
           <p className="mb-6 text-center text-[0.95rem] font-medium text-ink">
             Sign in to your account below
@@ -100,23 +96,19 @@ export default function LoginPage() {
           </form>
         </div>
 
-        {/* Register Link */}
         <div className="mt-6 text-center text-[0.95rem] text-muted">
           Don't have an account? <Link to="/register" className="font-medium text-ink underline hover:text-ink/80">Register</Link>
         </div>
       </div>
 
-      {/* Right Column: Image and Bubbles */}
       <div className="hidden w-full flex-col justify-center bg-[#f0efe9] md:flex md:w-[50%] lg:w-[55%]">
         <div className="relative mx-auto w-full max-w-2xl px-12 mt-16">
           
-          {/* Top Chat Bubble */}
           <div className="absolute -top-20 right-10 z-10 max-w-sm rounded-[1.5rem] rounded-bl-sm bg-surface p-5 text-sm font-medium text-ink shadow-xl ring-1 ring-line/50">
             <span className="text-xl leading-none text-muted">“</span>
             PhytoNexus, identify the disease on this leaf and predict its lifespan.
           </div>
 
-          {/* Main Image */}
           <div className="overflow-hidden rounded-2xl border border-line shadow-2xl relative z-0 mt-8 mb-8">
             <img 
               src="/8bit-plants.png" 
@@ -126,7 +118,6 @@ export default function LoginPage() {
             />
           </div>
 
-          {/* Bottom Chat Bubble */}
           <div className="absolute -bottom-16 left-0 z-10 max-w-[280px] rounded-[1.5rem] rounded-tl-sm bg-surface p-5 text-sm font-medium text-ink shadow-xl ring-1 ring-line/50">
             <span className="text-xl leading-none text-muted">“</span>
             Also, provide a 3-step care guide to keep it healthy.

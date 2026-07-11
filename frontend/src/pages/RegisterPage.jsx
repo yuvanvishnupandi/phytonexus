@@ -42,10 +42,8 @@ export default function RegisterPage() {
     <div className="flex flex-col h-screen w-full overflow-hidden bg-paper font-sans">
       <div className="flex flex-1 w-full overflow-hidden relative">
       
-      {/* Left Column: Register Area */}
       <div className="flex h-full w-full flex-col items-center justify-center px-6 md:w-[50%] lg:w-[45%] relative">
 
-        {/* Logo */}
         <div className="absolute top-8 left-8 flex items-center gap-2 text-ink">
           <Link to="/" className="flex items-center gap-2">
             <img src="/favicon.png" alt="PhytoNexus Logo" className="w-8 h-8 object-contain" style={{ imageRendering: 'pixelated' }} />
@@ -53,7 +51,6 @@ export default function RegisterPage() {
           </Link>
         </div>
 
-        {/* Hero Text */}
         <h1 className="mb-4 text-center font-serif text-[3.5rem] leading-[1.1] text-ink sm:text-[4rem]">
           Bring your plants<br />back to life
         </h1>
@@ -61,7 +58,6 @@ export default function RegisterPage() {
           Multi-agent AI for precise plant lifecycle predictions..
         </p>
 
-        {/* Register Box */}
         <div className="w-full max-w-md rounded-[1.5rem] border border-line bg-surface/50 p-8 shadow-sm">
           
           <form className="space-y-4" onSubmit={handleSubmit}>
@@ -123,13 +119,11 @@ export default function RegisterPage() {
 
       </div>
 
-      {/* Right Column: Chat Mockup */}
       <div className="hidden h-full w-full flex-col justify-center bg-[#f0efe9] md:flex md:w-[50%] lg:w-[55%]">
         <div className="relative mx-auto w-full max-w-2xl px-12">
           
           <div className="flex flex-col gap-6">
             
-            {/* User Message */}
             <div className="self-end max-w-md rounded-2xl bg-[#e6e4dc] p-4 text-[0.95rem] font-medium text-ink shadow-sm flex gap-3">
               <div className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-ink text-paper overflow-hidden">
                 <User size={14} />
@@ -137,12 +131,10 @@ export default function RegisterPage() {
               <p>PhytoNexus, identify the disease on this leaf and predict its lifespan.</p>
             </div>
 
-            {/* AI Response Message */}
             <div className="self-start max-w-[180px] rounded-2xl bg-surface p-4 text-[0.95rem] font-medium text-ink shadow-sm">
               Here's the report.
             </div>
 
-            {/* AI Report Card */}
             <div className="self-start w-full max-w-lg rounded-2xl bg-surface p-8 shadow-md">
               <h3 className="font-serif text-xl font-bold text-ink mb-3">Plant Health Report</h3>
               <p className="text-[0.85rem] text-ink/80 leading-relaxed mb-6">
