@@ -20,19 +20,19 @@ A self-hosted, multi-agent AI travel planner for your plants — featuring image
 
 <div align="center">
 
-<!-- Placeholder for 60-second tour GIF -->
-<img src="https://via.placeholder.com/1200x600/f8f7f5/3a4a40?text=PhytoNexus+Demo+Video+or+GIF" alt="PhytoNexus — 60-second tour" width="100%" />
+<!-- Screenshot Banner -->
+<img src="assets/readme12.png" alt="PhytoNexus Overview" width="100%" />
 
 </div>
 
 <br />
 
 <div align="center">
-  <!-- Placeholders for Screenshots -->
-  <a href="#"><img src="https://via.placeholder.com/600x400/f8f7f5/3a4a40?text=Dashboard" alt="Dashboard" width="49%" /></a>
-  <a href="#"><img src="https://via.placeholder.com/600x400/f8f7f5/3a4a40?text=Multi-Agent+Diagnostics" alt="Multi-Agent Diagnostics" width="49%" /></a>
-  <a href="#"><img src="https://via.placeholder.com/600x400/f8f7f5/3a4a40?text=FloraAI+Chatbot" alt="FloraAI Chatbot" width="49%" /></a>
-  <a href="#"><img src="https://via.placeholder.com/600x400/f8f7f5/3a4a40?text=Botanical+Encyclopedia" alt="Botanical Encyclopedia" width="49%" /></a>
+  <!-- Screenshots -->
+  <a href="#"><img src="assets/home.jpeg" alt="Home Screen" width="49%" /></a>
+  <a href="#"><img src="assets/dashboard.png" alt="Multi-Agent Diagnostics" width="49%" /></a>
+  <a href="#"><img src="assets/login.jpeg" alt="Login Portal" width="49%" /></a>
+  <a href="#"><img src="assets/img1.jpeg" alt="Features Preview" width="49%" /></a>
 </div>
 
 ---
