@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🪴 PhytoNexus
+# <img src="assets/logo21.gif" width="48" align="center" /> PhytoNexus
 
 **The Intelligent Botanical Diagnostic & Encyclopedia System**
 
