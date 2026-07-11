@@ -113,7 +113,7 @@ export default function FloraVoicePage() {
     formData.append("audio", audioBlob, "voice.webm");
 
     try {
-      const res = await fetch("http://localhost:8000/api/qa/voice", {
+      const res = await fetch((import.meta.env.VITE_API_BASE_URL || "http://localhost:8000") + "/api/qa/voice", {
         method: "POST",
         headers: { "Authorization": `Bearer ${token}` },
         body: formData

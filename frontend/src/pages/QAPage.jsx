@@ -36,7 +36,7 @@ export default function QAPage() {
   const loadSessions = async () => {
     if (!token) return;
     try {
-      const res = await fetch("http://localhost:8000/api/qa/sessions", {
+      const res = await fetch((import.meta.env.VITE_API_BASE_URL || "http://localhost:8000") + "/api/qa/sessions", {
         headers: { "Authorization": `Bearer ${token}` }
       });
       if (res.ok) {
@@ -90,7 +90,7 @@ export default function QAPage() {
     e.stopPropagation();
     if (!token) return;
     try {
-      const res = await fetch(`http://localhost:8000/api/qa/sessions/${sessionId}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}/api/qa/sessions/${sessionId}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${token}` }
       });
@@ -130,7 +130,7 @@ export default function QAPage() {
     }
 
     try {
-      const res = await fetch("http://localhost:8000/api/qa/chat", {
+      const res = await fetch((import.meta.env.VITE_API_BASE_URL || "http://localhost:8000") + "/api/qa/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -203,7 +203,7 @@ export default function QAPage() {
       }
 
       try {
-        const res = await fetch("http://localhost:8000/api/qa/upload", {
+        const res = await fetch((import.meta.env.VITE_API_BASE_URL || "http://localhost:8000") + "/api/qa/upload", {
           method: "POST",
           headers: {
             "Authorization": `Bearer ${token}`
