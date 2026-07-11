@@ -68,7 +68,11 @@ async def login(user: UserLogin):
         raise HTTPException(status_code=500, detail="Database connection not available")
 
     db_user = await collection.find_one({"email": user.email.lower()})
-    if not db_user or not verify_password(user.password, db_user["hashed_password"]):
+    if not db_user:
+        raise HTTPException(status_code=400, detail="Invalid email or password")
+        
+    hashed_pw = db_user.get("hashed_password")
+    if not hashed_pw or not verify_password(user.password, hashed_pw):
         raise HTTPException(status_code=400, detail="Invalid email or password")
 
     user_response = UserResponse(id=str(db_user["_id"]), name=db_user["name"], email=db_user["email"])
