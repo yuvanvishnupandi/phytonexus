@@ -7,7 +7,6 @@ openai
 motor
 pymongo
 python-multipart==0.0.9
-motor==3.4.0
 PyJWT==2.8.0
 passlib[bcrypt]==1.7.4
 pypdf
