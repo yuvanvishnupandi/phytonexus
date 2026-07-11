@@ -4,15 +4,32 @@
 
 <br />
 
+
 <div align="center">
 <p>A self-hosted, AI-powered botanical intelligence platform — with plant disease diagnostics, multi-agent reasoning, conversational AI, and a comprehensive botanical encyclopedia.</p>
 <br />
 
-<a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-8B5CF6?style=flat-square&labelColor=1F2937" /></a>
-&nbsp;
-<a href="https://github.com/yuvanvishnupandi/phytonexus/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/yuvanvishnupandi/phytonexus?style=flat-square&color=F59E0B&labelColor=1F2937&label=Stars" /></a>
-&nbsp;
-<a href="https://github.com/yuvanvishnupandi/phytonexus/commits/main"><img alt="Last Commit" src="https://img.shields.io/github/last-commit/yuvanvishnupandi/phytonexus?style=flat-square&color=22C55E&labelColor=1F2937&label=Last%20Commit" /></a>
+<p align="center">
+
+
+<a href="https://phytonexus.vercel.app/">
+<img src="https://img.shields.io/badge/🌐_Live_Demo-22C55E?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo"/>
+</a>
+<a href="LICENSE">
+<img src="https://img.shields.io/badge/License-MIT-7C3AED?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="MIT License"/>
+</a>
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"/>
+
+<img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI"/>
+
+<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
+
+<img src="https://img.shields.io/badge/Gemini_AI-8E75B2?style=for-the-badge&logo=google&logoColor=white" alt="Gemini"/>
+
+<img src="https://img.shields.io/github/last-commit/yuvanvishnupandi/phytonexus?style=for-the-badge"/>
+
+</p>
+
 
 </div>
 
