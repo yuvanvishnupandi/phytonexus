@@ -41,38 +41,37 @@ A self-hosted, multi-agent AI travel planner for your plants — featuring image
 
 ```mermaid
 graph TD
-    subgraph Frontend [React / Vite Frontend]
-        UI[User Interface]
-        State[Zustand State Management]
-        AuthUI[JWT Auth Context]
+    subgraph Frontend ["🟢 Frontend (React / Vite)"]
+        UI["User Interface (Tailwind CSS)"]
+        State["React Context API"]
+        AuthUI["JWT Auth Flow"]
     end
 
-    subgraph Backend [Node.js / Express Backend]
-        API[Express REST API]
-        Auth[Auth Middleware]
-        AgentOrch[Multi-Agent Orchestrator]
+    subgraph Backend ["🔵 Backend (Python / FastAPI)"]
+        API["FastAPI REST Routes"]
+        Auth["JWT Authentication"]
+        AgentOrch["Multi-Agent Diagnostics Engine"]
     end
 
-    subgraph AI_Services [AI & External APIs]
-        Vision[Gemini 1.5 Vision]
-        Chat[Gemini 1.5 Flash]
-        Debate[LLM Debate Engine]
-        Wiki[Wikipedia API]
-        GBIF[GBIF Global Database API]
+    subgraph AI_Services ["🧠 AI & External Services"]
+        Vision["Gemini Vision API"]
+        Debate["LLM Debate Engine"]
+        Wiki["Wikipedia API"]
+        GBIF["GBIF Botanical API"]
     end
 
-    subgraph Database [Data Layer]
-        Mongo[(MongoDB)]
+    subgraph Database ["🗄️ Data Layer"]
+        Mongo[("MongoDB Atlas")]
     end
 
-    UI -->|HTTP/REST| API
-    UI -->|WebSockets| AgentOrch
+    UI -->|"HTTP/REST"| API
     API --> Auth
     Auth --> Mongo
+    API --> AgentOrch
     AgentOrch --> Vision
     AgentOrch --> Debate
-    UI --> Wiki
-    UI --> GBIF
+    UI -->|"HTTP GET"| Wiki
+    UI -->|"HTTP GET"| GBIF
 ```
 
 ---
@@ -135,8 +134,8 @@ graph TD
 
 <div align="center">
 
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat-square&logo=mongodb&logoColor=white)
 ![React](https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
@@ -145,7 +144,7 @@ graph TD
 
 </div>
 
-Frontend built on Vite + React. Styling via TailwindCSS. State management with React Hooks. Backend powered by Node.js/Express with MongoDB. AI capabilities orchestrated using Google's Gemini Models. Botanical data aggregated from GBIF and Wikipedia APIs.
+Frontend built on Vite + React. Styling via TailwindCSS. State management with React Context. Backend powered by Python/FastAPI with MongoDB (Motor). AI capabilities orchestrated using Google's Gemini and advanced LLM debate pipelines. Botanical data aggregated from GBIF and Wikipedia APIs.
 
 <br />
 
@@ -160,18 +159,17 @@ cd phytonexus
 ### 2. Setup the Backend
 ```bash
 cd backend
-npm install
+pip install -r requirements.txt
 ```
 Create a `.env` file in the `backend` directory:
 ```env
-PORT=5000
 MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_super_secret_key
 GEMINI_API_KEY=your_gemini_api_key
+CORS_ORIGINS=http://localhost:5173
 ```
 Start the backend server:
 ```bash
-npm start
+uvicorn app.main:app --reload
 ```
 
 ### 3. Setup the Frontend
@@ -181,7 +179,7 @@ npm install
 ```
 Create a `.env` file in the `frontend` directory:
 ```env
-VITE_API_URL=http://localhost:5000
+VITE_API_BASE_URL=http://localhost:8000
 ```
 Start the frontend development server:
 ```bash
@@ -206,9 +204,9 @@ Open `http://localhost:5173` to explore PhytoNexus.
 1. Create a new Web Service on [Render](https://render.com).
 2. Connect your GitHub repository.
 3. Set the Root Directory to `backend`.
-4. Build Command: `npm install`
-5. Start Command: `node server.js`
-6. Add the environment variables (`MONGODB_URI`, `JWT_SECRET`, `GEMINI_API_KEY`).
+4. Build Command: `pip install -r requirements.txt`
+5. Start Command: `uvicorn app.main:app --host 0.0.0.0 --port 10000`
+6. Add the environment variables (`MONGODB_URI`, `CORS_ORIGINS`, `GEMINI_API_KEY`).
 7. Deploy!
 
 ---
