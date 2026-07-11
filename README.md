@@ -5,7 +5,7 @@
 <br />
 
 <div align="center">
-<p>The Intelligent Botanical Diagnostic & Encyclopedia System — featuring image diagnostics, conversational AI, and the world's largest open botanical database.</p>
+<p>A self-hosted, AI-powered botanical intelligence platform — with plant disease diagnostics, multi-agent reasoning, conversational AI, and a comprehensive botanical encyclopedia.</p>
 <br />
 
 <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-8B5CF6?style=flat-square&labelColor=1F2937" /></a>
@@ -23,11 +23,12 @@
 <table>
   <tr>
     <td><img src="assets/home.jpeg" width="400" style="border-radius:8px"/></td>
-    <td><img src="assets/dashboard.png" width="400" style="border-radius:8px"/></td>
+    <td><img src="assets/img7.jpeg" width="400" style="border-radius:8px"/></td>
   </tr>
   <tr>
-    <td><img src="assets/login.jpeg" width="400" style="border-radius:8px"/></td>
     <td><img src="assets/img1.jpeg" width="400" style="border-radius:8px"/></td>
+    <td><img src="assets/login.jpeg" width="400" style="border-radius:8px"/></td>
+    
   </tr>
   <tr>
     <td><img src="assets/img11.jpeg" width="400" style="border-radius:8px"/></td>
@@ -172,7 +173,7 @@ DEBATE --> LLM_APIs[Gemini / External APIs]
 
 <br />
 
-## 🔄 Diagnostic processing workflow
+## Diagnostic processing workflow
 
 The following sequence diagram illustrates how a plant image is processed from submission to full diagnosis.
 
@@ -199,7 +200,7 @@ Frontend-->>User: Display plant health report
 
 <br />
 
-## 🔄 Core data flow
+## Core data flow
 
 1. User uploads a plant image or searches the encyclopedia.
 2. The React frontend forwards the request to the FastAPI backend.
