@@ -37,7 +37,7 @@ export default function AnalyzePage() {
     async function checkLimit() {
       if (!token) {
         try {
-          const res = await fetch((import.meta.env.VITE_API_BASE_URL || "http://localhost:8000") + "/api/analyze/limit-status");
+          const res = await fetch("https://phytonexus-backend.onrender.com" + "/api/analyze/limit-status");
           if (res.ok) {
             const data = await res.json();
             setLimitReached(data.limit_reached);
@@ -76,7 +76,7 @@ export default function AnalyzePage() {
         headers["Authorization"] = `Bearer ${token}`;
       }
 
-      const response = await fetch((import.meta.env.VITE_API_BASE_URL || "http://localhost:8000") + "/api/analyze", {
+      const response = await fetch("https://phytonexus-backend.onrender.com" + "/api/analyze", {
         method: "POST",
         headers: headers,
         body: JSON.stringify({ 
