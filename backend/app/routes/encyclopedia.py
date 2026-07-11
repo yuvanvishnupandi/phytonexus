@@ -17,7 +17,6 @@ class EncyclopediaResponse(BaseModel):
 async def get_encyclopedia_entry(plant: str):
     settings = get_settings()
     
-    # We will use Gemini via the OpenAI compatibility layer for fast and cheap text generation
     if not settings.gemini_api_key:
         raise HTTPException(status_code=500, detail="Gemini API Key is missing.")
         
@@ -43,7 +42,6 @@ Return structured knowledge about the requested plant in this exact JSON schema:
         )
         content = response.choices[0].message.content or "{}"
         
-        # Clean up possible markdown fences
         if content.startswith("```json"):
             content = content.replace("```json", "").replace("```", "").strip()
             

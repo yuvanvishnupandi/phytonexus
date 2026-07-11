@@ -21,7 +21,6 @@ export default function RegisterPage() {
     e.preventDefault();
     setError("");
 
-    // Validate email
     const emailRegex = /^[a-zA-Z0-9_.+-]+@(gmail\.com|outlook\.com|yahoo\.com)$/i;
     if (!emailRegex.test(email)) {
       setError("Please use a valid @gmail.com, @outlook.com, or @yahoo.com email address.");

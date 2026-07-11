@@ -19,7 +19,6 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
 
 def create_access_token(data: dict) -> str:
     settings = get_settings()
-    # We use a hardcoded secret for this demo if not provided, but ideally it's in settings
     secret = "my-super-secret-jwt-key"
     to_encode = data.copy()
     expire = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(days=7)

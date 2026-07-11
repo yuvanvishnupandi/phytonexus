@@ -38,7 +38,6 @@ export default function AgentTimeline({ activeStep, done }) {
       return;
     }
     
-    // Simple mock typewriter effect based on activeStep
     const currentLogs = agentLogs.filter(a => a.step <= activeStep).flatMap(a => a.logs);
     setDisplayedLogs(currentLogs);
     

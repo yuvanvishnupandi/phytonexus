@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 
 load_dotenv("C:\\Users\\yuvan\\OneDrive\\Documents\\phytonexus\\backend\\.env")
 
-# Valid 1x1 white pixel JPEG
 b64 = "/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAABAAEBAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA="
 
 messages=[

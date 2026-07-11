@@ -21,7 +21,6 @@ export default function EncyclopediaPage() {
     setImages([]);
 
     try {
-      // 1. Search Wikipedia First (Robust for common names)
       const wikiSearchRes = await fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query.trim() + " plant")}&utf8=&format=json&origin=*`);
       if (!wikiSearchRes.ok) throw new Error("Failed to connect to Wikipedia.");
       const wikiSearchData = await wikiSearchRes.json();
@@ -32,12 +31,10 @@ export default function EncyclopediaPage() {
 
       const wikiTitle = wikiSearchData.query.search[0].title;
 
-      // 2. Fetch Wikipedia Summary
       const summaryRes = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiTitle)}`);
       if (!summaryRes.ok) throw new Error("Failed to fetch Wikipedia summary.");
       const wikiSummary = await summaryRes.json();
 
-      // 3. Try to fetch Taxonomy and Images from GBIF
       let taxonomy = null;
       let fetchedImages = [];
       try {
@@ -78,7 +75,6 @@ export default function EncyclopediaPage() {
         console.error("GBIF fetch failed gracefully", e);
       }
 
-      // Fallback to Wikipedia thumbnail if GBIF has no images
       if (fetchedImages.length === 0 && wikiSummary.thumbnail) {
         fetchedImages = [wikiSummary.thumbnail.source];
       }
@@ -94,7 +90,6 @@ export default function EncyclopediaPage() {
 
       setResult(combinedResult);
 
-      // 4. Fetch Wikipedia Full Sections
       try {
         const fullRes = await fetch(`https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=1&format=json&redirects=1&origin=*&titles=${encodeURIComponent(wikiTitle)}`);
         if (fullRes.ok) {

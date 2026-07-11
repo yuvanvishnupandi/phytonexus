@@ -13,24 +13,20 @@ DISCLAIMER = (
 
 
 async def analyze_plant(image_base64: str, filename: str, mime_type: str = "image/jpeg", user_id: str = None) -> AnalyzeResponse:
-    # 1. Base Vision Diagnosis
     diagnosis = await run_vision_diagnostician(image_base64, mime_type)
     
     if not diagnosis.is_plant:
         from fastapi import HTTPException
         raise HTTPException(status_code=400, detail="The uploaded image does not appear to be a plant. Please upload a clear photo of a plant.")
     
-    # 2. Lifecycle Expert (Sequential, since it doesn't take long)
     prediction = await run_lifecycle_expert(diagnosis)
 
-    # 3. Multi-Agent Debate (Parallel execution)
     opinions = await asyncio.gather(
         run_pathologist(diagnosis),
         run_soil_chemist(diagnosis),
         run_botanist(diagnosis)
     )
     
-    # 4. Synthesizer Treatment Plan
     treatment_plan = await run_synthesizer(list(opinions), diagnosis)
 
     document = {

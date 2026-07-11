@@ -15,7 +15,6 @@ export default function FloraVoicePage() {
   const audioChunksRef = useRef([]);
 
   useEffect(() => {
-    // Cleanup on unmount
     return () => {
       if (window.speechSynthesis) window.speechSynthesis.cancel();
       if (mediaRecorder && mediaRecorder.state !== "inactive") {
@@ -33,7 +32,6 @@ export default function FloraVoicePage() {
       return;
     }
     
-    // Stop any currently playing TTS
     if (window.speechSynthesis) {
        window.speechSynthesis.cancel();
        setIsPlaying(false);
@@ -96,8 +94,6 @@ export default function FloraVoicePage() {
       mediaRecorder.stop();
       setIsListening(false);
       setStatusMessage("Tap to speak");
-      // Intentionally overriding the onstop processing logic by resetting it or we can just let it process. 
-      // Actually, if we just want to cancel, we should just cancel TTS for now.
     }
     if (window.speechSynthesis) {
        window.speechSynthesis.cancel();

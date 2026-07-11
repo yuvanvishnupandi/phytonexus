@@ -28,7 +28,6 @@ async def check_limit_status(request: Request, current_user: Optional[UserRespon
 @router.post("/analyze", response_model=AnalyzeResponse)
 async def analyze(request: Request, body: AnalyzeRequest, current_user: Optional[UserResponse] = Depends(get_current_user_optional)):
     
-    # Guest Limit Check
     if not current_user:
         limits_col = get_guest_limits_collection()
         if limits_col is not None:
@@ -37,7 +36,6 @@ async def analyze(request: Request, body: AnalyzeRequest, current_user: Optional
             if guest_record and guest_record.get("usage_count", 0) >= 1:
                 raise HTTPException(status_code=429, detail="Limit reached for the device")
             
-            # Record usage
             await limits_col.update_one(
                 {"ip_address": ip_address},
                 {"$inc": {"usage_count": 1}},

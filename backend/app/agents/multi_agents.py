@@ -13,7 +13,6 @@ async def call_llm_with_fallbacks(system_msg: str, user_msg: str, temperature: f
     
     last_error = None
     
-    # 1. Groq (Fastest for text)
     if settings.groq_api_key:
         try:
             client = AsyncOpenAI(api_key=settings.groq_api_key, base_url="https://api.groq.com/openai/v1")
@@ -27,7 +26,6 @@ async def call_llm_with_fallbacks(system_msg: str, user_msg: str, temperature: f
         except Exception as e:
             last_error = f"Groq failed: {e}"
 
-    # 2. Gemini 2.5 Flash
     if settings.gemini_api_key:
         try:
             client = AsyncOpenAI(api_key=settings.gemini_api_key, base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
@@ -41,7 +39,6 @@ async def call_llm_with_fallbacks(system_msg: str, user_msg: str, temperature: f
         except Exception as e:
             last_error = f"Gemini 2.5 failed: {e}"
             
-    # 3. Gemini 1.5 Pro
     if settings.gemini_api_key:
         try:
             client = AsyncOpenAI(api_key=settings.gemini_api_key, base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
@@ -55,7 +52,6 @@ async def call_llm_with_fallbacks(system_msg: str, user_msg: str, temperature: f
         except Exception as e:
             last_error = f"Gemini 1.5 Pro failed: {e}"
 
-    # 4. OpenAI
     if settings.openai_api_key:
         try:
             client = AsyncOpenAI(api_key=settings.openai_api_key)

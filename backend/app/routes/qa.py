@@ -45,7 +45,6 @@ async def chat(request: ChatRequest, current_user: UserResponse = Depends(get_cu
     if collection is None:
         raise HTTPException(status_code=500, detail="Database connection not available")
 
-    # Initialize API clients
     gemini_client = AsyncOpenAI(api_key=settings.gemini_api_key, base_url="https://generativelanguage.googleapis.com/v1beta/openai/") if settings.gemini_api_key else None
     groq_client = AsyncOpenAI(api_key=settings.groq_api_key, base_url="https://api.groq.com/openai/v1") if settings.groq_api_key else None
     mistral_client = AsyncOpenAI(api_key=settings.mistral_api_key, base_url="https://api.mistral.ai/v1") if settings.mistral_api_key else None
@@ -53,7 +52,6 @@ async def chat(request: ChatRequest, current_user: UserResponse = Depends(get_cu
     
     if not (gemini_client or groq_client or mistral_client or openai_client):
         raise HTTPException(status_code=500, detail="No AI providers are configured for Q&A.")
-    # Retrieve existing session or create a new one
     session = None
     if request.session_id:
         try:
@@ -72,10 +70,8 @@ async def chat(request: ChatRequest, current_user: UserResponse = Depends(get_cu
         res = await collection.insert_one(session)
         session["_id"] = res.inserted_id
 
-    # Append user message
     session["messages"].append({"role": "user", "content": request.message})
 
-    # Prepare OpenAI messages
     openai_messages = [{"role": "system", "content": "You are FloraAi, an advanced botanical and agricultural AI assistant. You MUST ONLY answer questions related to plants, botany, agriculture, greenhouse management, or crops. If the user asks about ANYTHING else (e.g., coding, general history, math, unrelated advice), you must refuse to answer and reply EXACTLY with: 'I am an AI specialized in botanical and agricultural analysis. I can only assist with plant-related inquiries.'"}]
     for msg in session["messages"]:
         openai_messages.append({"role": msg["role"], "content": msg["content"]})
@@ -83,7 +79,6 @@ async def chat(request: ChatRequest, current_user: UserResponse = Depends(get_cu
     answer = None
     last_error = None
     
-    # Attempt 1: Gemini 2.5 Flash
     if gemini_client and not answer:
         try:
             response = await gemini_client.chat.completions.create(
@@ -95,7 +90,6 @@ async def chat(request: ChatRequest, current_user: UserResponse = Depends(get_cu
         except Exception as e:
             last_error = f"Gemini 2.5 failed: {e}"
 
-    # Attempt 1.5: Gemini 1.5 Pro
     if gemini_client and not answer:
         try:
             response = await gemini_client.chat.completions.create(
@@ -107,7 +101,6 @@ async def chat(request: ChatRequest, current_user: UserResponse = Depends(get_cu
         except Exception as e:
             last_error = f"Gemini 1.5 Pro failed: {e}"
             
-    # Attempt 1.8: Gemini 1.5 Flash
     if gemini_client and not answer:
         try:
             response = await gemini_client.chat.completions.create(
@@ -119,7 +112,6 @@ async def chat(request: ChatRequest, current_user: UserResponse = Depends(get_cu
         except Exception as e:
             last_error = f"Gemini 1.5 Flash failed: {e}"
 
-    # Attempt 2: Groq
     if groq_client and not answer:
         try:
             response = await groq_client.chat.completions.create(
@@ -131,7 +123,6 @@ async def chat(request: ChatRequest, current_user: UserResponse = Depends(get_cu
         except Exception as e:
             last_error = f"Groq failed: {e}"
 
-    # Attempt 3: Mistral
     if mistral_client and not answer:
         try:
             response = await mistral_client.chat.completions.create(
@@ -143,7 +134,6 @@ async def chat(request: ChatRequest, current_user: UserResponse = Depends(get_cu
         except Exception as e:
             last_error = f"Mistral failed: {e}"
 
-    # Attempt 4: OpenAI
     if openai_client and not answer:
         try:
             response = await openai_client.chat.completions.create(
@@ -158,10 +148,8 @@ async def chat(request: ChatRequest, current_user: UserResponse = Depends(get_cu
     if not answer:
         raise HTTPException(status_code=500, detail=f"All AI providers failed. Last error: {last_error}")
 
-    # Append AI message
     session["messages"].append({"role": "assistant", "content": answer})
     
-    # Update DB
     updated_at = datetime.now(timezone.utc).isoformat()
     await collection.update_one(
         {"_id": session["_id"]},
@@ -184,7 +172,6 @@ async def upload_file(
     if collection is None:
         raise HTTPException(status_code=500, detail="Database connection not available")
 
-    # Read file content
     content = await file.read()
     text = ""
     filename = file.filename.lower()
@@ -211,7 +198,6 @@ async def upload_file(
 
     groq_client = AsyncOpenAI(api_key=settings.groq_api_key, base_url="https://api.groq.com/openai/v1") if settings.groq_api_key else None
     
-    # Check if text is related to plants/agriculture
     check_prompt = "Does the following text contain data related to plants, agriculture, botany, greenhouse metrics, biology, or crop yields? Reply ONLY with YES or NO.\n\nText snippet:\n" + text[:2000]
     
     try:
@@ -230,7 +216,6 @@ async def upload_file(
     except Exception as e:
         pass # If verification fails, we'll just allow it to proceed to be safe
 
-    # Proceed to append to session
     session = None
     if session_id:
         try:
@@ -251,7 +236,6 @@ async def upload_file(
         res = await collection.insert_one(session)
         session["_id"] = res.inserted_id
 
-    # Create a system message acknowledging the file context
     user_msg = f"I have uploaded a file named '{file.filename}'. Here is its content:\n{text[:3000]}"
     ai_reply = f"I have received the botanical data file '{file.filename}'. I've extracted its metrics and integrated them into our context. How can I help you analyze this data?"
     session["messages"].append({"role": "user", "content": user_msg})
@@ -278,14 +262,12 @@ async def voice_chat(
     settings = get_settings()
     
     try:
-        # Read the audio into bytes
         audio_bytes = await audio.read()
         file_obj = (audio.filename or "audio.webm", audio_bytes, audio.content_type or "audio/webm")
         
         user_text = None
         transcription_error = None
         
-        # 1. Try Groq Whisper
         if settings.groq_api_key:
             try:
                 groq_client = AsyncOpenAI(api_key=settings.groq_api_key, base_url="https://api.groq.com/openai/v1")
@@ -298,7 +280,6 @@ async def voice_chat(
             except Exception as e:
                 transcription_error = f"Groq Whisper failed: {e}"
         
-        # 2. Try OpenAI Whisper Fallback
         if not user_text and settings.openai_api_key:
             try:
                 openai_client = AsyncOpenAI(api_key=settings.openai_api_key)
@@ -314,7 +295,6 @@ async def voice_chat(
         if not user_text or not user_text.strip():
             raise HTTPException(status_code=400, detail=f"Could not understand audio. Last error: {transcription_error}")
             
-        # Re-use the existing chat endpoint logic by calling it directly
         req = ChatRequest(session_id=session_id, message=user_text)
         chat_response = await chat(req, current_user)
         

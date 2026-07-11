@@ -25,7 +25,6 @@ function TypingText({ text }) {
   );
 }
 
-// 1. Capabilities
 function CapabilitiesSection() {
   return (
     <section className="py-24 px-6 md:px-8 max-w-6xl mx-auto">
@@ -59,7 +58,6 @@ function CapabilitiesSection() {
   );
 }
 
-// System Architecture Section
 function SystemArchitectureSection() {
   return (
     <section className="py-12 px-6 md:px-16 lg:px-24 w-full mx-auto mb-8">
@@ -113,7 +111,6 @@ function SystemArchitectureSection() {
   );
 }
 
-// 3. Why PhytoNexus
 function WhyPhytoNexusSection() {
   return (
     <section className="min-h-[calc(100vh-3.5rem)] py-16 px-6 md:px-8 max-w-6xl mx-auto flex flex-col justify-center">
@@ -151,7 +148,6 @@ function WhyPhytoNexusSection() {
 }
 
 
-// 8. Minimalist Footer
 function FooterSection() {
   return (
     <footer className="bg-paper text-ink pt-16 pb-8 px-6 md:px-16 lg:px-24 w-full min-h-[calc(100vh-3.5rem)] flex flex-col justify-between">

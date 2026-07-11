@@ -73,7 +73,6 @@ async def run_vision_diagnostician(image_base64: str, mime_type: str = "image/jp
 
     errors = []
 
-    # Attempt 1: Gemini Vision (gemini-2.5-flash) - highly reliable, very high quota
     if settings.gemini_api_key:
         try:
             gemini_client = AsyncOpenAI(api_key=settings.gemini_api_key, base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
@@ -88,7 +87,6 @@ async def run_vision_diagnostician(image_base64: str, mime_type: str = "image/jp
         except Exception as e:
             errors.append(f"Gemini 2.5 Vision failed: {e}")
             
-    # Attempt 2: Gemini Vision Fallback (gemini-1.5-pro) - different quota bucket
     if settings.gemini_api_key:
         try:
             gemini_client = AsyncOpenAI(api_key=settings.gemini_api_key, base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
@@ -103,7 +101,6 @@ async def run_vision_diagnostician(image_base64: str, mime_type: str = "image/jp
         except Exception as e:
             errors.append(f"Gemini 1.5 Pro Vision failed: {e}")
 
-    # Attempt 3: Mistral Pixtral Vision
     if settings.mistral_api_key:
         try:
             mistral_client = AsyncOpenAI(api_key=settings.mistral_api_key, base_url="https://api.mistral.ai/v1")
@@ -117,7 +114,6 @@ async def run_vision_diagnostician(image_base64: str, mime_type: str = "image/jp
         except Exception as e:
             errors.append(f"Mistral Pixtral Vision failed: {e}")
 
-    # Attempt 4: OpenAI Fallback (gpt-4o-mini)
     if openai_client:
         try:
             response = await openai_client.chat.completions.create(

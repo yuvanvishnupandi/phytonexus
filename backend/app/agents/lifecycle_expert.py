@@ -66,7 +66,6 @@ async def run_lifecycle_expert(diagnosis: VisionDiagnosis) -> LifecyclePredictio
     last_error = None
     content = "{}"
 
-    # Attempt 1: Gemini (gemini-1.5-flash) - highly reliable, large quota
     if settings.gemini_api_key:
         try:
             gemini_client = AsyncOpenAI(api_key=settings.gemini_api_key, base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
@@ -82,7 +81,6 @@ async def run_lifecycle_expert(diagnosis: VisionDiagnosis) -> LifecyclePredictio
             last_error = f"Gemini Lifecycle failed: {e}"
             print(last_error)
 
-    # Attempt 2: Groq (llama-3.3-70b-versatile)
     if groq_client:
         try:
             response = await groq_client.chat.completions.create(
@@ -97,7 +95,6 @@ async def run_lifecycle_expert(diagnosis: VisionDiagnosis) -> LifecyclePredictio
             last_error = f"Groq Lifecycle failed: {e}"
             print(last_error)
 
-    # Attempt 3: Mistral (mistral-small-latest)
     if mistral_client:
         try:
             response = await mistral_client.chat.completions.create(
@@ -112,7 +109,6 @@ async def run_lifecycle_expert(diagnosis: VisionDiagnosis) -> LifecyclePredictio
             last_error = f"Mistral Lifecycle failed: {e}"
             print(last_error)
 
-    # Attempt 4: OpenAI (gpt-4o-mini) - lowest priority due to quota
     if openai_client:
         try:
             response = await openai_client.chat.completions.create(

@@ -16,7 +16,6 @@ export default function QAPage() {
   const [activeSessionId, setActiveSessionId] = useState(null);
   const { token } = useAuth();
   
-  // Current Chat State
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -41,7 +40,6 @@ export default function QAPage() {
       });
       if (res.ok) {
         const data = await res.json();
-        // transform DB model to frontend state
         const formatted = data.map(s => ({
           id: s.id,
           title: s.title,
@@ -60,7 +58,6 @@ export default function QAPage() {
 
   const handleNewChat = () => {
     if (messages.length > 0 && !activeSessionId) {
-      // Save current to recents
       const newSession = {
         id: Date.now(),
         title: messages[0].content.substring(0, 30) + "...",
@@ -73,7 +70,6 @@ export default function QAPage() {
   };
 
   const handleSelectSession = (session) => {
-    // If we have an unsaved chat, save it
     if (messages.length > 0 && !activeSessionId) {
       const newSession = {
         id: Date.now(),
@@ -116,7 +112,6 @@ export default function QAPage() {
     setIsTyping(true);
     setCurrentAIResponse("");
 
-    // Optimistic sidebar update
     let tempId = null;
     if (!activeSessionId) {
        tempId = `temp_${Date.now()}`;
@@ -154,7 +149,6 @@ export default function QAPage() {
       setMessages(finalMessages);
       setIsTyping(false);
       
-      // Update session with real DB ID
       if (!activeSessionId || tempId) {
         setChatSessions(prev => prev.map(s => s.id === tempId ? { ...s, id: data.session_id, title: data.title, messages: finalMessages } : s));
         setActiveSessionId(data.session_id);
@@ -166,7 +160,6 @@ export default function QAPage() {
       const finalMessages = [...newMessages, { role: "ai", content: err.message || "Error communicating with FloraAi." }];
       setMessages(finalMessages);
       setIsTyping(false);
-      // Update the temporary session with the error message so they see it in history
       const currentId = tempId || activeSessionId;
       if (currentId) {
         setChatSessions(prev => prev.map(s => s.id === currentId ? { ...s, messages: finalMessages } : s));
@@ -182,7 +175,6 @@ export default function QAPage() {
       setMessages(newMessages);
       setIsTyping(true);
       
-      // Optimistic sidebar update
       let tempId = null;
       if (!activeSessionId) {
          tempId = `temp_${Date.now()}`;
@@ -241,7 +233,6 @@ export default function QAPage() {
         }
       }
       
-      // Reset input
       e.target.value = null;
     }
   };
