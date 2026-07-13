@@ -126,26 +126,134 @@ Configure your MongoDB database and environment variables, then start the FastAP
 
 <br />
 
-## Tech stack
+## 🛠️ Tech Stack
 
-<div align="center">
+<table align="center">
+<tr>
+<td align="center" width="150">
+<a href="https://react.dev">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/react.svg" width="60"><br><br>
+<b>React</b>
+</a>
+</td>
 
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat-square&logo=mongodb&logoColor=white)
-![Gemini](https://img.shields.io/badge/Google_Gemini-8E75B2?style=flat-square&logo=google&logoColor=white)
-![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
-![Render](https://img.shields.io/badge/Render-46E3B7?style=flat-square&logo=render&logoColor=white)
+<td align="center" width="150">
+<a href="https://vitejs.dev">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vite.svg" width="60"><br><br>
+<b>Vite</b>
+</a>
+</td>
 
-</div>
+<td align="center" width="150">
+<a href="https://python.org">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/python.svg" width="60"><br><br>
+<b>Python</b>
+</a>
+</td>
 
-Frontend built on Vite + React. Styling via TailwindCSS. State management with React Context. Backend powered by Python/FastAPI with MongoDB (Motor). AI capabilities orchestrated using Google's Gemini and advanced LLM debate pipelines. Botanical data aggregated from GBIF and Wikipedia APIs.
+<td align="center" width="150">
+<a href="https://fastapi.tiangolo.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/fastapi.svg" width="60"><br><br>
+<b>FastAPI</b>
+</a>
+</td>
+</tr>
 
-<br />
+<tr>
+<td align="center" width="150">
+<a href="https://mongodb.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/mongodb.svg" width="60"><br><br>
+<b>MongoDB</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://ai.google.dev">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/googlegemini.svg" width="60"><br><br>
+<b>Gemini AI</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://tailwindcss.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/tailwindcss.svg" width="60"><br><br>
+<b>Tailwind CSS</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://jwt.io">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/jsonwebtokens.svg" width="60"><br><br>
+<b>JWT</b>
+</a>
+</td>
+</tr>
+
+<tr>
+<td align="center" width="150">
+<a href="https://vercel.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vercel.svg" width="60"><br><br>
+<b>Vercel</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://render.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/render.svg" width="60"><br><br>
+<b>Render</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://git-scm.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/git.svg" width="60"><br><br>
+<b>Git</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://github.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/github.svg" width="60"><br><br>
+<b>GitHub</b>
+</a>
+</td>
+</tr>
+
+<tr>
+<td align="center" width="150">
+<a href="https://postman.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/postman.svg" width="60"><br><br>
+<b>Postman</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://motor.readthedocs.io">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/mongodb.svg" width="60"><br><br>
+<b>Motor</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://gbif.org">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/leaflet.svg" width="60"><br><br>
+<b>GBIF API</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://wikipedia.org">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/wikipedia.svg" width="60"><br><br>
+<b>Wikipedia API</b>
+</a>
+</td>
+</tr>
+
+</table>
+
+<br><br>
+
+---
 
 <h2 id="architecture">🏛️ Overall system architecture</h2>
 
