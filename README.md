@@ -6,7 +6,7 @@
 
 
 <div align="center">
-<p>A self-hosted, AI-powered botanical intelligence platform — with plant disease diagnostics, multi-agent reasoning, conversational AI, and a comprehensive botanical encyclopedia.</p>
+<p>A self-hosted, AI-powered botanical intelligence platform with plant disease diagnostics, multi-agent reasoning, conversational AI, and a comprehensive botanical encyclopedia.</p>
 <br />
 
 <p align="center">
